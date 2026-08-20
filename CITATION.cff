@@ -8,6 +8,21 @@ authors:
     family-names: Pan
     email: 20194112@zcmu.edu.cn
     orcid: https://orcid.org/0000-0002-2491-7396
+  - given-names: Danlei
+    family-names: Chen
+  - given-names: Wu
+    family-names: Lin
+    orcid: https://orcid.org/0000-0009-0007-1227-3339
+  - given-names: Bingzhi
+    family-names: Zhou
+  - given-names: Yuzhou
+    family-names: He
+    email: hyzxy1995@126.com
+    orcid: https://orcid.org/0000-0002-9441-4188
+  - given-names: Jiancheng
+    family-names: Zhang
+    email: 20104010@zcmu.edu.cn
+    orcid: https://orcid.org/0000-0009-0005-5773-6937
 keywords:
   - sepsis
   - mortality prediction
