@@ -1,0 +1,13 @@
+{
+  "status": "decided",
+  "primary_time_origin": "suspected_infection_time",
+  "secondary_time_origins": [
+    "max(sofa_time, suspected_infection_time)",
+    "icu_admission"
+  ],
+  "source_table": "mimiciv_derived.sepsis3",
+  "source_code_commit": "a0af19c18a66b6d96935058ebfa830608989bd7c",
+  "protocol_amendment_required": true,
+  "protocol_amendment_note": "D0 出口 B：主时间原点正式定为 suspected_infection_time。依据：锁定版 mimic-code（a0af19c）MIMIC-IV sepsis3 概念不输出 sepsis_time（qa/derived_provenance_v2.md §2）；sofa_time 与 suspected_infection_time 差值分布 [-48h, +24h]（78.5% 感染疑似更早），敏感性轨保留 max(sofa_time, suspected_infection_time) 与 icu_admission 两口径。PI 批准日期 2026-07-30。",
+  "pi_approval_date": "2026-07-30"
+}

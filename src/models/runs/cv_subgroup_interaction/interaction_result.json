@@ -1,0 +1,65 @@
+{
+  "definition": "Interaction = \u0394iAUROC(CV-SOFA>=3) - \u0394iAUROC(CV-SOFA<3)",
+  "subgroup_rule": "strict_24h \u8f68\u9996\u4e2a\u6709\u6548 landmark \u7684\u5fc3\u8840\u7ba1 SOFA \u8bc4\u5206\uff1b\u7f3a\u5931\u4e0d\u5165\u7ec4",
+  "seeds": [
+    {
+      "seed": 1,
+      "delta_ge3": 0.019593151164295608,
+      "delta_lt3": 0.0390808478421415,
+      "interaction": -0.01948769667784589,
+      "n_missing": 1621
+    },
+    {
+      "seed": 2,
+      "delta_ge3": -0.005784801614299284,
+      "delta_lt3": 0.009218028057696892,
+      "interaction": -0.015002829671996176,
+      "n_missing": 1621
+    },
+    {
+      "seed": 3,
+      "delta_ge3": 0.012063788775397377,
+      "delta_lt3": 0.016139225261681878,
+      "interaction": -0.0040754364862845005,
+      "n_missing": 1621
+    },
+    {
+      "seed": 4,
+      "delta_ge3": -0.0065369173761972155,
+      "delta_lt3": -0.018523705383152733,
+      "interaction": 0.011986788006955518,
+      "n_missing": 1621
+    },
+    {
+      "seed": 5,
+      "delta_ge3": 0.01984269827405405,
+      "delta_lt3": 0.004368272860780786,
+      "interaction": 0.015474425413273263,
+      "n_missing": 1621
+    }
+  ],
+  "per_seed_interaction_mean": -0.002220949883179557,
+  "per_seed_interaction_sd": 0.015652014560473253,
+  "ensemble": {
+    "ge3": {
+      "delta": 0.00872085707916781,
+      "n_samples": 2460,
+      "n_patients": 436,
+      "n_pos": 111
+    },
+    "lt3": {
+      "delta": 0.014614785520648876,
+      "n_samples": 5263,
+      "n_patients": 972,
+      "n_pos": 77
+    },
+    "interaction": -0.005893928441481067
+  },
+  "bootstrap_ci95": [
+    -0.03326013922094114,
+    0.01915893145150095
+  ],
+  "bootstrap_valid": 578,
+  "interaction_significant": false,
+  "n_missing_samples": 8105
+}

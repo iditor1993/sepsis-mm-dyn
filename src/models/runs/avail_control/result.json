@@ -1,0 +1,93 @@
+{
+  "per_seed": [
+    {
+      "seed": 1,
+      "sc": 0.8222778850760991,
+      "control": 0.8288274316103553,
+      "sce": 0.836483957864553,
+      "delta_control_vs_sc": 0.006549546534256212,
+      "delta_sce_vs_sc": 0.014206072788453872,
+      "delta_sce_vs_control": 0.00765652625419766
+    },
+    {
+      "seed": 2,
+      "sc": 0.8267099542348048,
+      "control": 0.8310958886705774,
+      "sce": 0.8405311967524743,
+      "delta_control_vs_sc": 0.00438593443577262,
+      "delta_sce_vs_sc": 0.013821242517669585,
+      "delta_sce_vs_control": 0.009435308081896965
+    },
+    {
+      "seed": 3,
+      "sc": 0.8285665936113595,
+      "control": 0.8311439691625969,
+      "sce": 0.8371664462593623,
+      "delta_control_vs_sc": 0.002577375551237382,
+      "delta_sce_vs_sc": 0.008599852648002781,
+      "delta_sce_vs_control": 0.0060224770967653996
+    },
+    {
+      "seed": 4,
+      "sc": 0.8273036639716782,
+      "control": 0.8339976643154966,
+      "sce": 0.8315818272430063,
+      "delta_control_vs_sc": 0.006694000343818396,
+      "delta_sce_vs_sc": 0.004278163271328128,
+      "delta_sce_vs_control": -0.002415837072490268
+    },
+    {
+      "seed": 5,
+      "sc": 0.8247433206887655,
+      "control": 0.8304866189176661,
+      "sce": 0.8301339847834671,
+      "delta_control_vs_sc": 0.0057432982289005174,
+      "delta_sce_vs_sc": 0.005390664094701569,
+      "delta_sce_vs_control": -0.00035263413419894807
+    }
+  ],
+  "per_seed_mean": {
+    "delta_control_vs_sc": 0.005190031018797026,
+    "delta_control_vs_sc_sd": 0.0017240106351293209,
+    "delta_sce_vs_sc": 0.009259199064031188,
+    "delta_sce_vs_control": 0.004069168045234162
+  },
+  "ensemble": {
+    "sc_common_all": 0.8315607391096383,
+    "sc_avail_control": 0.8379364043818898,
+    "sce_deployment": 0.8423119635766773,
+    "delta_control_vs_sc": 0.0063756652722514184,
+    "delta_sce_vs_sc": 0.010751224467038911,
+    "residual_waveform_signal": 0.004375559194787493,
+    "deployment_route": 0.8342390495076359,
+    "avail_control_route": 0.8334222008297166,
+    "ecg_available_subset_primary_grid": {
+      "n": 10546,
+      "sc": 0.8164229845642241,
+      "sce": 0.8291612926280943,
+      "sc_avail_control": 0.8267328379877608,
+      "delta_sce_vs_sc": 0.012738308063870218,
+      "delta_control_vs_sc": 0.01030985342353663
+    },
+    "n_test": 72067,
+    "n_positive": 1957,
+    "n_ecg_available": 14015
+  },
+  "delta_control_vs_sc_bootstrap_ci95": [
+    0.003871131051006943,
+    0.00897131198859637
+  ],
+  "delta_sce_vs_sc_bootstrap_ci95": [
+    0.00734931987007435,
+    0.014039162699597842
+  ],
+  "delta_sce_vs_control_bootstrap_ci95": [
+    0.0013689911220069184,
+    0.007175466401244481
+  ],
+  "delta_sce_vs_control_ecg_available_bootstrap_ci95": [
+    -0.003822580216146534,
+    0.008296861615276362
+  ],
+  "bootstrap_valid": 2000
+}

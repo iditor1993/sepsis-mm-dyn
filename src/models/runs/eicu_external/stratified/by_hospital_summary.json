@@ -1,0 +1,20 @@
+{
+  "P-clinical": {
+    "n_hospitals_estimable": 68,
+    "iauroc_median": 0.7230889201805046,
+    "iauroc_iqr": [
+      0.6434038585303978,
+      0.7691148538311314
+    ],
+    "fail_hospital_share": 0.04411764705882353
+  },
+  "P-explicit": {
+    "n_hospitals_estimable": 57,
+    "iauroc_median": 0.7265962540410881,
+    "iauroc_iqr": [
+      0.6730834167079505,
+      0.7776852729500239
+    ],
+    "fail_hospital_share": 0.017543859649122806
+  }
+}

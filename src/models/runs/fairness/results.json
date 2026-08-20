@@ -1,0 +1,312 @@
+{
+  "paired": {
+    "n_matched": 9344,
+    "subgroups": {
+      "sex=F": {
+        "n_landmarks": 3765,
+        "n_grid_landmarks": 2790,
+        "n_patients": 711,
+        "events": 94,
+        "events_grid": 73,
+        "iauroc_sc": 0.7134696996475348,
+        "iauroc_sce": 0.7187143989659764,
+        "delta_iauroc": 0.005244699318441626,
+        "delta_ci95": [
+          -0.005700327201291439,
+          0.023029816246687325
+        ],
+        "boot_valid": 370
+      },
+      "sex=M": {
+        "n_landmarks": 5579,
+        "n_grid_landmarks": 4076,
+        "n_patients": 1007,
+        "events": 129,
+        "events_grid": 79,
+        "iauroc_sc": 0.8520456693914679,
+        "iauroc_sce": 0.8558655151881841,
+        "delta_iauroc": 0.003819845796716237,
+        "delta_ci95": [
+          -0.015373757626657486,
+          0.017454037615214024
+        ],
+        "boot_valid": 910
+      },
+      "age_group=<65": {
+        "n_landmarks": 4020,
+        "n_grid_landmarks": 2779,
+        "n_patients": 720,
+        "events": 98,
+        "events_grid": 59,
+        "iauroc_sc": 0.8567409666124334,
+        "iauroc_sce": 0.8657803590467567,
+        "delta_iauroc": 0.009039392434323279,
+        "delta_ci95": [
+          -0.009435132329003346,
+          0.02050384003746637
+        ],
+        "boot_valid": 492
+      },
+      "age_group=65-79": {
+        "n_landmarks": 3461,
+        "n_grid_landmarks": 2619,
+        "n_patients": 628,
+        "events": 72,
+        "events_grid": 53,
+        "iauroc_sc": 0.835650953700072,
+        "iauroc_sce": 0.8515523028595385,
+        "delta_iauroc": 0.015901349159466505,
+        "delta_ci95": [
+          -0.002333573941911826,
+          0.03271280767270468
+        ],
+        "boot_valid": 494
+      },
+      "age_group=>=80": {
+        "n_landmarks": 1863,
+        "n_grid_landmarks": 1468,
+        "n_patients": 370,
+        "events": 53,
+        "events_grid": 40,
+        "iauroc_sc": 0.6936654946145465,
+        "iauroc_sce": 0.7216713542989918,
+        "delta_iauroc": 0.028005859684445245,
+        "delta_ci95": [
+          0.01296325378549854,
+          0.04260891513439602
+        ],
+        "boot_valid": 353
+      },
+      "race_group=White": {
+        "n_landmarks": 5584,
+        "n_grid_landmarks": 4149,
+        "n_patients": 1026,
+        "events": 89,
+        "events_grid": 60,
+        "iauroc_sc": 0.8482876974729329,
+        "iauroc_sce": 0.8542713175018153,
+        "delta_iauroc": 0.005983620028882419,
+        "delta_ci95": [
+          -0.008725316651955608,
+          0.02105279790353548
+        ],
+        "boot_valid": 348
+      },
+      "race_group=Black": {
+        "n_landmarks": 466,
+        "n_grid_landmarks": 373,
+        "n_patients": 99,
+        "events": 12,
+        "events_grid": 11,
+        "iauroc_sc": NaN,
+        "iauroc_sce": NaN,
+        "delta_iauroc": null,
+        "delta_ci95": [
+          null,
+          null
+        ],
+        "boot_valid": 0
+      },
+      "race_group=Asian": {
+        "n_landmarks": 173,
+        "n_grid_landmarks": 137,
+        "n_patients": 36,
+        "events": 7,
+        "events_grid": 7,
+        "iauroc_sc": NaN,
+        "iauroc_sce": NaN,
+        "delta_iauroc": null,
+        "delta_ci95": [
+          null,
+          null
+        ],
+        "boot_valid": 0
+      },
+      "race_group=Hispanic": {
+        "n_landmarks": 228,
+        "n_grid_landmarks": 163,
+        "n_patients": 41,
+        "events": 2,
+        "events_grid": 2,
+        "iauroc_sc": NaN,
+        "iauroc_sce": NaN,
+        "delta_iauroc": null,
+        "delta_ci95": [
+          null,
+          null
+        ],
+        "boot_valid": 0
+      },
+      "race_group=Other/Unknown": {
+        "n_landmarks": 2601,
+        "n_grid_landmarks": 1815,
+        "n_patients": 454,
+        "events": 105,
+        "events_grid": 70,
+        "iauroc_sc": 0.7506465405627152,
+        "iauroc_sce": 0.7614273766492028,
+        "delta_iauroc": 0.01078083608648761,
+        "delta_ci95": [
+          -0.009319216771028305,
+          0.02727810491441841
+        ],
+        "boot_valid": 754
+      }
+    }
+  },
+  "deployment": {
+    "n_matched": 72067,
+    "subgroups": {
+      "sex=F": {
+        "n_landmarks": 29631,
+        "n_grid_landmarks": 17792,
+        "n_patients": 2029,
+        "events": 841,
+        "events_grid": 571,
+        "iauroc_sc": 0.8119225627231986,
+        "iauroc_sce": 0.8251775097879676,
+        "delta_iauroc": 0.01325494706476893,
+        "delta_ci95": [
+          0.007036888145690828,
+          0.01864274207824158
+        ],
+        "boot_valid": 1000
+      },
+      "sex=M": {
+        "n_landmarks": 42436,
+        "n_grid_landmarks": 25374,
+        "n_patients": 2832,
+        "events": 1116,
+        "events_grid": 652,
+        "iauroc_sc": 0.845177979463216,
+        "iauroc_sce": 0.8548434610760056,
+        "delta_iauroc": 0.009665481612789573,
+        "delta_ci95": [
+          0.005365530965627851,
+          0.014286474370625414
+        ],
+        "boot_valid": 1000
+      },
+      "age_group=<65": {
+        "n_landmarks": 31940,
+        "n_grid_landmarks": 18680,
+        "n_patients": 2073,
+        "events": 746,
+        "events_grid": 457,
+        "iauroc_sc": 0.8508224784473022,
+        "iauroc_sce": 0.8621949362209745,
+        "delta_iauroc": 0.011372457773672351,
+        "delta_ci95": [
+          0.006558094727410405,
+          0.016369045293239164
+        ],
+        "boot_valid": 1000
+      },
+      "age_group=65-79": {
+        "n_landmarks": 25986,
+        "n_grid_landmarks": 15502,
+        "n_patients": 1739,
+        "events": 637,
+        "events_grid": 410,
+        "iauroc_sc": 0.8385506165286905,
+        "iauroc_sce": 0.8465611054376541,
+        "delta_iauroc": 0.008010488908963609,
+        "delta_ci95": [
+          0.002266322409842606,
+          0.013255852199426602
+        ],
+        "boot_valid": 1000
+      },
+      "age_group=>=80": {
+        "n_landmarks": 14141,
+        "n_grid_landmarks": 8984,
+        "n_patients": 1049,
+        "events": 574,
+        "events_grid": 356,
+        "iauroc_sc": 0.7771086319472054,
+        "iauroc_sce": 0.7945537939982739,
+        "delta_iauroc": 0.017445162051068497,
+        "delta_ci95": [
+          0.008408072559380489,
+          0.026699693007694203
+        ],
+        "boot_valid": 1000
+      },
+      "race_group=White": {
+        "n_landmarks": 41615,
+        "n_grid_landmarks": 25413,
+        "n_patients": 2901,
+        "events": 1003,
+        "events_grid": 624,
+        "iauroc_sc": 0.8248086400931235,
+        "iauroc_sce": 0.8317647864990815,
+        "delta_iauroc": 0.006956146405957986,
+        "delta_ci95": [
+          0.0025657447530159166,
+          0.011661087126350904
+        ],
+        "boot_valid": 1000
+      },
+      "race_group=Black": {
+        "n_landmarks": 5152,
+        "n_grid_landmarks": 3161,
+        "n_patients": 365,
+        "events": 157,
+        "events_grid": 99,
+        "iauroc_sc": 0.8306907792408061,
+        "iauroc_sce": 0.842833318900758,
+        "delta_iauroc": 0.012142539659951823,
+        "delta_ci95": [
+          -0.004421855761599458,
+          0.028012707902750605
+        ],
+        "boot_valid": 990
+      },
+      "race_group=Asian": {
+        "n_landmarks": 1677,
+        "n_grid_landmarks": 1077,
+        "n_patients": 123,
+        "events": 36,
+        "events_grid": 23,
+        "iauroc_sc": 0.8140885854410446,
+        "iauroc_sce": 0.8200045735214806,
+        "delta_iauroc": 0.00591598808043603,
+        "delta_ci95": [
+          -0.0039822669119573325,
+          0.016797660744830727
+        ],
+        "boot_valid": 228
+      },
+      "race_group=Hispanic": {
+        "n_landmarks": 1968,
+        "n_grid_landmarks": 1150,
+        "n_patients": 125,
+        "events": 28,
+        "events_grid": 18,
+        "iauroc_sc": NaN,
+        "iauroc_sce": NaN,
+        "delta_iauroc": null,
+        "delta_ci95": [
+          null,
+          null
+        ],
+        "boot_valid": 0
+      },
+      "race_group=Other/Unknown": {
+        "n_landmarks": 18546,
+        "n_grid_landmarks": 10529,
+        "n_patients": 1138,
+        "events": 670,
+        "events_grid": 415,
+        "iauroc_sc": 0.8213276495725141,
+        "iauroc_sce": 0.8397979982020373,
+        "delta_iauroc": 0.018470348629523126,
+        "delta_ci95": [
+          0.010946078012502062,
+          0.025335198985945037
+        ],
+        "boot_valid": 1000
+      }
+    }
+  }
+}

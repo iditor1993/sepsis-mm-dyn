@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "SEPSIS-MM-DYN: dynamic 24-hour mortality prediction in sepsis from
+  multimodal ICU data"
+type: software
+authors:
+  - given-names: Xuming
+    family-names: Pan
+    email: 20194112@zcmu.edu.cn
+    orcid: https://orcid.org/0000-0002-2491-7396
+keywords:
+  - sepsis
+  - mortality prediction
+  - multimodal learning
+  - electrocardiography
+  - MIMIC-IV
+  - eICU
+license: MIT
+version: 0.1.0
+identifiers:
+  - type: doi
+    value: 10.17605/OSF.IO/KEH57
+    description: Protocol preregistration (time-locked OSF project)
+repository-code: "https://github.com/iditor1993/sepsis-mm-dyn"
+url: "https://osf.io/keh57"

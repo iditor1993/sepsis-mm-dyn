@@ -1,0 +1,9 @@
+{
+  "seed": 1,
+  "best_val_c_death": 0.7766294898507079,
+  "test_cindex": {
+    "death": 0.7685465064136846,
+    "alive_discharge": 0.7052343534772275,
+    "acute_transfer": 0.5771382577414533
+  }
+}

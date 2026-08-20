@@ -1,0 +1,181 @@
+{
+  "schema_version": "freeze_checklist_v1",
+  "note": "31 项冻结清单状态骨架；初始全部未关闭，随 QA 运行更新",
+  "A_protocol": {
+    "A-1": true,
+    "A-2": true,
+    "A-3": true,
+    "A-4": true,
+    "A-5": true,
+    "A-6": true
+  },
+  "B_timeline": {
+    "B-1": true,
+    "B-2": true,
+    "B-3": true,
+    "B-4": true,
+    "B-5": true,
+    "B-6": true,
+    "B-7": true
+  },
+  "C_leakage": {
+    "C-1": true,
+    "C-2": true,
+    "C-3": true,
+    "C-4": true,
+    "C-5": true,
+    "C-6": true,
+    "C-7": true
+  },
+  "D_labels": {
+    "D-1": true,
+    "D-2": true,
+    "D-3": true,
+    "D-4": true,
+    "D-5": true,
+    "D-6": true
+  },
+  "E_ecg": {
+    "E-1": true,
+    "E-2": true,
+    "E-3": true,
+    "E-4": true,
+    "E-5": true
+  },
+  "closures": {
+    "B-1": {
+      "closed_at": "2026-07-30T21:24:10",
+      "evidence": "mimic/c0_episodes.py 以 main.icustays 为锚（LAG 按 hadm_id 排序生成 9,216 条边）；final map 覆盖全部 94,458 stays；证据：edges/map parquet + Q1-8 断言"
+    },
+    "B-2": {
+      "closed_at": "2026-07-30T21:25:01",
+      "evidence": "一对多关系实测符合预期：main_tau0 无合并（v3.1 最小间隙 0.1min），tau30/60 合并 791/792 边形成多 stay episode（93,667/93,666 episodes）；qa/time_logic_qa_v2.md 登记"
+    },
+    "B-3": {
+      "closed_at": "2026-07-30T21:25:01",
+      "evidence": "Q1-8 断言：每 stay_id 恰好一个 episode_id（三版本均通过）；(episode_id, stay_id) 无重复；episode_id 不跨 hadm"
+    },
+    "B-7": {
+      "closed_at": "2026-07-30T21:25:43",
+      "evidence": "合并三规则落地（c0_episodes.py）：transfer_sequence 实际生成（有序 JSON）；合法/异常路径类别（含 internal_transfer_placeholder 30min 候选）；final_decision 显式 CASE 仅 merged/split；preliminary/final 物理分离；episode_id='MIMIC_<hadm>_<seq>' 全局唯一；pending 保守拆分+unresolved 标志；三版本独立不混用"
+    },
+    "B-4": {
+      "closed_at": "2026-07-30T21:27:15",
+      "evidence": "canonical JSON+SHA-256 落地：四张 time-map 守恒断言全过（SUM(raw)=物理行数：med 7,301,853/lab 39,132,531/micro 16,996/infusion 4,803,719）；round-trip 与恶意边界值测试通过；micro 全量 source_event_id 无重复、canonical 组内字段一致；normalized event 与 time-map 一对一"
+    },
+    "B-6": {
+      "closed_at": "2026-07-30T21:27:45",
+      "evidence": "eICU episode 四表已建立（edges 34,504/preliminary/adjudications 261/final 200,859→190,627 episodes）；每 patientunitstayid 恰一个 final episode、不跨 patienthealthsystemstayid（断言通过）；标签全用 *_episode_min（eicu/labels.py）；2 条负 LOS 打标进 QA"
+    },
+    "C-1": {
+      "closed_at": "2026-07-30T21:28:17",
+      "evidence": "MIMIC 关键检验从 labevents 重建（14 项），strict 轨 available_time=storetime（缺失降级 charttime 打标）；labs_hourly_v2 双轨 17,188,578 行；防泄漏断言 max_available<=landmark 0 违规"
+    },
+    "C-6": {
+      "closed_at": "2026-07-30T21:28:18",
+      "evidence": "max_available_time 已定义（vitals/labs 聚合记录必备字段）并接入 Q1：vitals_strict 53.6M 行与 labs 17.2M 行断言 0 违规（qa/leakage_report_v2.md）"
+    },
+    "D-1": {
+      "closed_at": "2026-07-30T21:29:07",
+      "evidence": "两字段拆分落地：outcome_ascertainable（可判定）与 full_inhospital_followup_24h（完整随访）独立生成；P1-3 边界断言通过（恰好 t+24h 出院 full_followup=TRUE）"
+    },
+    "D-2": {
+      "closed_at": "2026-07-30T21:29:07",
+      "evidence": "冲突先 unknown 再裁决：状态机分支 status_conflict（实测 0）/death_time_missing（实测 78）→ 全部进 label_adjudications（pending），不隐式编码"
+    },
+    "D-4": {
+      "closed_at": "2026-07-30T21:29:07",
+      "evidence": "eICU 标签全用 *_episode_min：death_episode_min=hospitaldischargeoffset-episode_start（Expired）；hospital_discharge_episode_min、acute_transfer/alive_discharge_episode_min 均已落地"
+    },
+    "D-6": {
+      "closed_at": "2026-07-30T21:29:07",
+      "evidence": "label_adjudications 与自动标签物理分离（labels/label_adjudications.parquet 78 条 pending + eicu_label_adjudications.parquet）；仅 adjudicated 可覆盖，覆盖比例进 QA"
+    },
+    "E-1": {
+      "closed_at": "2026-07-30T21:30:39",
+      "evidence": "显式 OR 归属落地（f8_ecg.py）：same_hospitalization（admittime≤ecg_time≤dischtime）∨ auditable_pre_admission（≤30d 且无其他住院覆盖）；实测 171,520/39,840 行；other_encounter/out_of_window 排除"
+    },
+    "E-3": {
+      "closed_at": "2026-07-30T21:30:39",
+      "evidence": "结构性 QC 固定（预处理 P5）：可读+时长≥9s+导联数≥8+非全平线；36,648 份全部经 QC，36,639 合格（99.98%），QC 参数登记于 preprocess/config"
+    },
+    "C-4": {
+      "closed_at": "2026-07-30T21:33:40",
+      "evidence": "pf_available_time=max(pao2,fio2 两者 available) 断言通过：0 违规；pf_strict_eligible 已接入 SOFA respiration 组分（qa/sofa_realtime_completeness_v2.md）"
+    },
+    "C-7": {
+      "closed_at": "2026-07-30T21:33:40",
+      "evidence": "完整性规则锁定并验证：strict_24h 6/6=7.8%、>=5/6=47.0%；carryforward 6/6=10.6%、>=5/6=55.8%；总分仅 6/6（Q1-12 通过）；delta 双分层互斥校验通过；qa/sofa_realtime_completeness_v2.md"
+    },
+    "D-3": {
+      "closed_at": "2026-07-30T21:33:40",
+      "evidence": "出院去向清单两库实测冻结：MIMIC acute=('ACUTE HOSPITAL')、alive=11 类；eICU acute=('Other Hospital','Telemetry','Step-Down Unit')、alive=6 类；XOR 互斥验证两库 0 违规；实测分布登记于 config.py 与 eicu/labels.py docstring"
+    },
+    "C-5": {
+      "closed_at": "2026-07-30T21:34:57",
+      "evidence": "SOFA available-time 口径确定：labs/vitals=storetime（降级打标）、vaso/vent=实际输注时间、GCS/UO=charttime_fallback 登记；qa/sofa_available_time_semantics_v2.md"
+    },
+    "D-5": {
+      "closed_at": "2026-07-30T21:37:17",
+      "evidence": "边界单元测试 13/13 通过（src/data/tests/test_label_boundaries.py）：恰好 t+24h 出院 full_followup=TRUE、t+12h 出院+t+30h 延迟 storetime 反例、存活出院优先于 coverage、invalid_input/status_conflict/death_time_missing/missing_status_left_observation 分支、死亡/episode 结束不生成 landmark（产物级断言）；白名单已锁定（contracts/clinical_observation_whitelist_v2.parquet）"
+    },
+    "C-2": {
+      "closed_at": "2026-07-30T21:39:38",
+      "evidence": "eICU lab 语义专项关闭：revised 100% 覆盖、5.0% 倒置、中位滞后 28min；max(result,revised) 候选规则验证通过；多版本残留 55,023 组（去重规则=revised 最大）；当前产物维持 charttime_fallback；qa/eicu_lab_time_semantics_qa.md"
+    },
+    "C-3": {
+      "closed_at": "2026-07-30T21:41:31",
+      "evidence": "vitals itemid 分层审计关闭：16 个 itemid storetime 100% 可用，录入延迟中位 15-26min/p90 55-106min，同时刻重复 0；strict 轨必须 storetime（已实现）；qa/vitals_dual_track_v2.md"
+    },
+    "E-2": {
+      "closed_at": "2026-07-30T21:44:23",
+      "evidence": "ED 审计四条件固定并落地（f8_ecg.py）：①edregtime 非空且 ECG≥edregtime ②ECG≤max(admittime,edouttime) ③|admittime-edouttime|≤24h（实测 p99=3.09h）④无其他 encounter+≤30d；重跑后 pre-admission 39,840→37,988（4.6% 无 ED 关联排除），selected 112,066→111,343"
+    },
+    "B-5": {
+      "closed_at": "2026-07-30T22:06:27",
+      "evidence": "回放验证通过（带留痕）：键匹配 0.999、suspected 标记 1.000、infection_time 0.890（不一致 97%≤24h，根因 chartdate-only 精度约定）；规则=最早培养+不限 ICU；qa/pairing_replay_validation_v2.md；chartdate 约定与药名清单等价性挂接 A-4 待办"
+    },
+    "A-1": {
+      "closed_at": "2026-07-30T22:40:39",
+      "evidence": "D0 出口 B 确定：主时间原点=suspected_infection_time（PI 批准 2026-07-30）；依据=锁定版 mimic-code a0af19c 的 sepsis3 不输出 sepsis_time（qa/derived_provenance_v2.md §2）；敏感性轨=max(sofa_time,si_time) 与 icu_admission"
+    },
+    "A-2": {
+      "closed_at": "2026-07-30T22:40:39",
+      "evidence": "d0_decision.json 按 §3.1 固定 schema 生成：primary=suspected_infection_time、secondary 两口径、source_table、source_code_commit=a0af19c、protocol_amendment_required=true、pi_approval_date=2026-07-30"
+    },
+    "A-3": {
+      "closed_at": "2026-07-30T22:55:07",
+      "evidence": "2020-2022 amendment 签署（选项 A：正式排除）：49,173 subjects / 3,341 index episodes 不进入任何 train/validation/test 索引与任何结局/性能查看；理由=与 v1.9 四年组预注册一致 + COVID 时期分布漂移不可校正；split_assignments_v2 已按 excluded_amendment_pending 隔离（零管线改动）；不保留为扩展数据（未来若启用需独立 amendment）"
+    },
+    "A-5": {
+      "closed_at": "2026-07-30T23:13:01",
+      "evidence": "PI 签署（2026-07-30）：P-clinical 主外验（assumed-zero baseline 接受+局限性声明+observed-complete 子集敏感性）；P-explicit 第二外验；P-strict 降 feasibility_only；外验命名锁定 Robustness under phenotype shift；诊断时间语义审计完成（qa/eicu_diagnosis_time_semantics_qa.md：proxy/observed/retrospective 三层已区分）"
+    },
+    "A-6": {
+      "closed_at": "2026-07-30T23:32:27",
+      "evidence": "Go/No-Go 数值按 §2.2 C7 原样预登记（PI 确认 2026-07-30，未据模型效果调整）：P-strict 多项不达正式退出（feasibility_only）；P-clinical/P-explicit 感染证据为诊断驱动不依赖抗生素配对，其余门槛全过继续；30% 抗生素覆盖率门槛保留（约束力限于 P-strict）；eICU 首个 landmark SOFA 可计算率补测作附件"
+    },
+    "E-4": {
+      "closed_at": "2026-07-30T23:41:52",
+      "evidence": "数据驱动 QC 阈值仅训练集拟合：5 指标（snr_db/baseline_mv/sat_ratio/extreme_ratio/lead_corr），零膨胀指标用 p99 上界、其余 median±3MAD，nanmedian 防御；训练集 22,662 份拟合，fitted_on=train 登记 registry；应用后 25,599/36,648（69.9%）通过"
+    },
+    "E-5": {
+      "closed_at": "2026-07-30T23:44:29",
+      "evidence": "24h 主配对队列冻结（查看测试集结果前）：两层 QC（结构+训练集数据驱动）后 ecg_selected_for_model_frozen=78,305 landmarks；ascertainable 后 idx_paired_ecg=77,385（15,498 episodes，1,797 阳性）；选片与防泄漏统一 ecg_available_time_assumed（断言通过）；P4/P9/P10 已按冻结选片重跑，paired 两包 train 49,180/val 18,861/test 9,344 哈希一致"
+    },
+    "A-4": {
+      "closed_at": "2026-07-31T00:04:56",
+      "evidence": "mimic-code commit 锁定：a0af19c18a66b6d96935058ebfa830608989bd7c（2026-07-04 master）；两 SQL 文件 SHA-256 已登记（_meta/mimic_code_reference/manifest.json：sepsis3=1d06e0ef…、suspicion_of_infection=0fc3d5a8…）；DB 构建来源经 PI 确认为自建自最近 master（schema 级一致性已验证：sepsis3 14 列全同、antibiotic 949,901 行吻合）；配对函数参照实现已落地并完成逐行移植回放验证"
+    }
+  },
+  "blocked_pi_items": {
+    "A-1": "D0 出口选择（依据 qa/derived_provenance_v2.md §2：官方 sepsis3 无 sepsis_time）",
+    "A-2": "依赖 A-1 回填",
+    "A-3": "2020-2022 amendment 签署（当前 excluded_amendment_pending 隔离）",
+    "A-5": "eICU 表型规则表 PI 逐项签署",
+    "A-6": "Go/No-Go 阈值 PI 确认（实测 qa/eicu_go_nogo_v2.md）"
+  },
+  "freeze_status": "FROZEN",
+  "freeze_tag": "SEPSIS-MM-DYN-data-pipeline-v2.4.1-freeze",
+  "freeze_effective_date": "2026-07-30"
+}

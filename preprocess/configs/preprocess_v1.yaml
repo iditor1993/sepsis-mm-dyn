@@ -1,0 +1,77 @@
+# SEPSIS-MM-DYN 预处理配置（方案 v1.1 §2.2）
+run_id: pp_v1_20260730
+seed_root: 20260730
+
+paths:
+  # 提取产物根（只读消费，不回写）
+  data_pipeline_root: src/data/_output/
+  # 数据库路径：${VAR} 会在加载时从环境变量展开。
+  # 可复制 configs/local_paths.example.yaml 为 configs/local_paths.yaml
+  # （已加入 .gitignore），或直接 export MIMIC_DB / EICU_DB / ECG_WFDB_ROOT。
+  mimic_db: ${MIMIC_DB}
+  eicu_db: ${EICU_DB}
+  ecg_wfdb_root: ${ECG_WFDB_ROOT}
+  out_root: preprocess/artifacts/
+  qa_root: preprocess/qa_preprocess/
+  meta_root: preprocess/_meta/
+
+episode_mapping_version: main_tau0
+time_semantics: strict_available_time   # 敏感性：chart_or_event_time（独立 run_id）
+
+grid:
+  window_hours: 24
+  bin_hours: 1
+  aggregation: median
+  delta_cap_hours: 48
+
+# P2 通道清单（MIMIC 21；SC-common-core = 前 18，P8 冻结）
+channels:
+  vitals: [hr, sbp, dbp, mbp, rr, spo2, temp]
+  labs: [creatinine, bilirubin, platelets, lactate, wbc, hemoglobin,
+         glucose, sodium, potassium, bicarbonate, inr, pt, pao2]
+  extra_mimic_only: [nee_current]      # C 层，eICU 不可用
+sc_common_core:
+  - hr
+  - sbp
+  - dbp
+  - mbp
+  - rr
+  - spo2
+  - temp
+  - creatinine
+  - bilirubin
+  - platelets
+  - lactate
+  - wbc
+  - hemoglobin
+  - glucose
+  - sodium
+  - potassium
+  - bicarbonate
+
+samples:
+  label_filter: outcome_ascertainable_true
+  weighting: patient_equal              # 敏感性：landmark_equal
+  main_grid_max_k: 11
+
+sofa_track: strict_24h                  # 敏感性：carryforward
+
+ecg:
+  target_fs: 500
+  duration_s: 10
+  leads: [I, II, III, aVR, aVL, aVF, V1, V2, V3, V4, V5, V6]
+  freshness_hours_main: 24              # 敏感性：48 / 72
+  qc_thresholds_from: train
+  normalization: per_record_zscore      # 备选：global_train_stats（预设次要分析）
+  notch_decision: pending_p7_audit      # 冻结前不做陷波
+  baseline_filter_decision: pending_p7_audit  # 冻结前不做基线滤波
+  pacing_detection: pending             # 起搏信号检测 pending
+  data_driven_qc: done_20260730         # E-4 已完成：p7_fitted/ecg_quality_thresholds.json，69.9% 通过
+  workers: 6
+
+sce_deployment:
+  modality_dropout_p: 0.3
+
+eicu:
+  tracks: [P-clinical, P-explicit]      # P-strict feasibility_only，不成包
+  feasibility_only: true

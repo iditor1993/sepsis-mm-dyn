@@ -1,0 +1,165 @@
+{
+  "n_ecg_available": 14015,
+  "n_ecg_unavailable": 58052,
+  "positive_ecg_available": 393,
+  "positive_ecg_unavailable": 1564,
+  "largest_abs_std_diffs": [
+    {
+      "characteristic": "Charlson score available (%)",
+      "kind": "binary",
+      "ecg_available": "15.0",
+      "ecg_unavailable": "27.2",
+      "std_diff": -0.3
+    },
+    {
+      "characteristic": "ICU type: Neuro Intermediate (%)",
+      "kind": "binary",
+      "ecg_available": "5.5",
+      "ecg_unavailable": "12.3",
+      "std_diff": -0.239
+    },
+    {
+      "characteristic": "ICU type: Coronary Care Unit (CCU) (%)",
+      "kind": "binary",
+      "ecg_available": "13.8",
+      "ecg_unavailable": "8.1",
+      "std_diff": 0.183
+    },
+    {
+      "characteristic": "Vasopressors (%)",
+      "kind": "binary",
+      "ecg_available": "30.3",
+      "ecg_unavailable": "22.5",
+      "std_diff": 0.179
+    },
+    {
+      "characteristic": "Invasive ventilation (%)",
+      "kind": "binary",
+      "ecg_available": "34.5",
+      "ecg_unavailable": "28.1",
+      "std_diff": 0.138
+    },
+    {
+      "characteristic": "ICU type: Trauma SICU (TSICU) (%)",
+      "kind": "binary",
+      "ecg_available": "8.0",
+      "ecg_unavailable": "12.0",
+      "std_diff": -0.131
+    },
+    {
+      "characteristic": "ICU type: Medical ICU (MICU) (%)",
+      "kind": "binary",
+      "ecg_available": "28.7",
+      "ecg_unavailable": "24.2",
+      "std_diff": 0.104
+    },
+    {
+      "characteristic": "ICU type: Cardiac Vascular ICU (CVICU) (%)",
+      "kind": "binary",
+      "ecg_available": "15.2",
+      "ecg_unavailable": "11.7",
+      "std_diff": 0.101
+    }
+  ],
+  "rows": [
+    {
+      "characteristic": "Female sex (%)",
+      "kind": "binary",
+      "ecg_available": "40.0",
+      "ecg_unavailable": "41.4",
+      "std_diff": -0.027
+    },
+    {
+      "characteristic": "Admission via emergency department (%)",
+      "kind": "binary",
+      "ecg_available": "64.5",
+      "ecg_unavailable": "65.9",
+      "std_diff": -0.029
+    },
+    {
+      "characteristic": "Invasive ventilation (%)",
+      "kind": "binary",
+      "ecg_available": "34.5",
+      "ecg_unavailable": "28.1",
+      "std_diff": 0.138
+    },
+    {
+      "characteristic": "Vasopressors (%)",
+      "kind": "binary",
+      "ecg_available": "30.3",
+      "ecg_unavailable": "22.5",
+      "std_diff": 0.179
+    },
+    {
+      "characteristic": "Charlson score available (%)",
+      "kind": "binary",
+      "ecg_available": "15.0",
+      "ecg_unavailable": "27.2",
+      "std_diff": -0.3
+    },
+    {
+      "characteristic": "Weight missing (%)",
+      "kind": "binary",
+      "ecg_available": "0.8",
+      "ecg_unavailable": "0.9",
+      "std_diff": -0.008
+    },
+    {
+      "characteristic": "24-h in-hospital mortality (%)",
+      "kind": "binary",
+      "ecg_available": "2.80",
+      "ecg_unavailable": "2.69",
+      "std_diff": 0.007
+    },
+    {
+      "characteristic": "ICU type: Cardiac Vascular ICU (CVICU) (%)",
+      "kind": "binary",
+      "ecg_available": "15.2",
+      "ecg_unavailable": "11.7",
+      "std_diff": 0.101
+    },
+    {
+      "characteristic": "ICU type: Coronary Care Unit (CCU) (%)",
+      "kind": "binary",
+      "ecg_available": "13.8",
+      "ecg_unavailable": "8.1",
+      "std_diff": 0.183
+    },
+    {
+      "characteristic": "ICU type: Medical ICU (MICU) (%)",
+      "kind": "binary",
+      "ecg_available": "28.7",
+      "ecg_unavailable": "24.2",
+      "std_diff": 0.104
+    },
+    {
+      "characteristic": "ICU type: Medical/Surgical ICU (MICU/SICU) (%)",
+      "kind": "binary",
+      "ecg_available": "13.8",
+      "ecg_unavailable": "14.1",
+      "std_diff": -0.006
+    },
+    {
+      "characteristic": "ICU type: Neuro Intermediate (%)",
+      "kind": "binary",
+      "ecg_available": "5.5",
+      "ecg_unavailable": "12.3",
+      "std_diff": -0.239
+    },
+    {
+      "characteristic": "ICU type: Surgical ICU (SICU) (%)",
+      "kind": "binary",
+      "ecg_available": "7.5",
+      "ecg_unavailable": "9.3",
+      "std_diff": -0.063
+    },
+    {
+      "characteristic": "ICU type: Trauma SICU (TSICU) (%)",
+      "kind": "binary",
+      "ecg_available": "8.0",
+      "ecg_unavailable": "12.0",
+      "std_diff": -0.131
+    }
+  ],
+  "note": "Descriptive statistics at landmark level in the deployment test set; no formal hypothesis tests were applied. Standardized difference: Cohen's d for continuous variables and p/(sqrt(mean p(1-mean p))) for binary variables."
+}

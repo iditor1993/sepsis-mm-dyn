@@ -1,0 +1,16 @@
+# ----------------------------------------------------------------------
+# Machine-specific database paths.
+#
+# How to use:
+#   1. Copy this file to `preprocess/configs/local_paths.yaml`.
+#   2. Replace the values below with your local paths.
+#   3. `local_paths.yaml` is gitignored and never leaves your machine.
+#
+# Alternatively, export the environment variables MIMIC_DB, EICU_DB and
+# ECG_WFDB_ROOT instead; both the extraction and preprocessing pipelines
+# read them.
+# ----------------------------------------------------------------------
+paths:
+  mimic_db: "E:/clinical_research/MIMIC_IV_3.1/mimic_iv_3_1.duckdb"
+  eicu_db: "E:/clinical_research/eICUdatabase/eicu_crd.duckdb"
+  ecg_wfdb_root: "E:/clinical_research/MIMIC_IV_3.1/ecg/"

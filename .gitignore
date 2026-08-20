@@ -1,0 +1,53 @@
+# ----------------------------------------------------------------------
+# Patient-level data and derived data (NEVER commit or push)
+# MIMIC-IV / eICU are credentialed PhysioNet datasets; their DUAs
+# prohibit redistribution of any patient-derived files.
+# ----------------------------------------------------------------------
+src/data/_output/
+preprocess/artifacts/
+preprocess/qa_preprocess/
+
+# Raw databases
+*.duckdb
+*.duckdb.wal
+*.db
+*.sqlite
+*.sqlite3
+*.parquet
+*.feather
+
+# Model weights and per-patient predictions
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.csv
+*.pkl
+*.joblib
+*.csv
+*.pkl
+*.joblib
+
+# Machine-specific local configuration
+preprocess/configs/local_paths.yaml
+configs/local_paths.yaml
+
+# Logs and caches
+*.log
+wandb/
+logs/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS / editor / sync noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.baiduyun.uploading.cfg
+*.tmp

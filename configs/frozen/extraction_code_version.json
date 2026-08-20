@@ -1,0 +1,21 @@
+{
+  "pipeline_version": "v2.4.1",
+  "mimic_source": "MIMIC-IV v3.1",
+  "eicu_source": "eICU-CRD v2.0",
+  "merge_version_default": "main_tau0",
+  "landmark_interval_h": 6,
+  "landmark_max_k": 27,
+  "landmark_main_grid_max_k": 11,
+  "adult_age_min": 18,
+  "d0_status": "decided",
+  "operational_t_sepsis_field": "suspected_infection_time",
+  "source_event_id_version": "eicu_source_event_sha256_v1",
+  "canonicalization_rule_version": "canonical_json_v1",
+  "pending_items": [
+    "eICU 锁定选对函数 select_suspected_infection_pairs_locked_v1 待 mimic-code blob（A-4）",
+    "ECG 陷波/基线滤波/起搏检测待训练集审计（P7/技术文档 §20）",
+    "eICU 表型规则表待 PI 签署（feasibility_only）",
+    "A-3 2020-2022 amendment 待签署",
+    "A-6 Go/No-Go 阈值待 PI 确认"
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "analysis": "per-landmark Delta-AUROC, paired test set, primary grid k=0-11",
+  "ensemble": "five-seed probability mean (calibrated probabilities)",
+  "bootstrap": {
+    "n": 2000,
+    "seed": 20260730,
+    "unit": "patient",
+    "method": "percentile"
+  },
+  "rows": [
+    {
+      "landmark": 0,
+      "n": 266,
+      "positive": 7,
+      "sc_auroc": 0.6674020959735245,
+      "sce_auroc": 0.7330391616105901,
+      "delta_auroc": 0.06563706563706562,
+      "ci95": [
+        0.02176034835091725,
+        0.10924104124408385
+      ],
+      "valid_resamples": 1998,
+      "valid_fraction": 0.999
+    },
+    {
+      "landmark": 1,
+      "n": 774,
+      "positive": 16,
+      "sc_auroc": 0.7807552770448549,
+      "sce_auroc": 0.8125,
+      "delta_auroc": 0.03174472295514508,
+      "ci95": [
+        -0.010190771411614563,
+        0.06947781028808693
+      ],
+      "valid_resamples": 2000,
+      "valid_fraction": 1.0
+    },
+    {
+      "landmark": 2,
+      "n": 987,
+      "positive": 21,
+      "sc_auroc": 0.8645864142758553,
+      "sce_auroc": 0.8759735778369319,
+      "delta_auroc": 0.011387163561076608,
+      "ci95": [
+        -0.005076343440446135,
+        0.028519822812846003
+      ],
+      "valid_resamples": 2000,
+      "valid_fraction": 1.0
+    },
+    {
+      "landmark": 3,
+      "n": 1086,
+      "positive": 26,
+      "sc_auroc": 0.8880261248185777,
+      "sce_auroc": 0.9033381712626996,
+      "delta_auroc": 0.015312046444121874,
+      "ci95": [
+        0.0037753243291274163,
+        0.026713387275163196
+      ],
+      "valid_resamples": 2000,
+      "valid_fraction": 1.0
+    },
+    {
+      "landmark": 4,
+      "n": 910,
+      "positive": 20,
+      "sc_auroc": 0.7548876404494382,
+      "sce_auroc": 0.7784831460674158,
+      "delta_auroc": 0.02359550561797752,
+      "ci95": [
+        0.0052069530329800105,
+        0.04219042196116037
+      ],
+      "valid_resamples": 2000,
+      "valid_fraction": 1.0
+    },
+    {
+      "landmark": 5,
+      "n": 668,
+      "positive": 20,
+      "sc_auroc": 0.9078703703703703,
+      "sce_auroc": 0.9123456790123456,
+      "delta_auroc": 0.004475308641975317,
+      "ci95": [
+        -0.004819568127582832,
+        0.013236315359477075
+      ],
+      "valid_resamples": 2000,
+      "valid_fraction": 1.0
+    },
+    {
+      "landmark": 6,
+      "n": 564,
+      "positive": 9,
+      "sc_auroc": 0.9155155155155155,
+      "sce_auroc": 0.9097097097097097,
+      "delta_auroc": -0.005805805805805808,
+      "ci95": [
+        -0.019944894286999554,
+        0.00869691607684525
+      ],
+      "valid_resamples": 1999,
+      "valid_fraction": 0.9995
+    },
+    {
+      "landmark": 7,
+      "n": 453,
+      "positive": 9,
+      "sc_auroc": 0.9231731731731732,
+      "sce_auroc": 0.9214214214214215,
+      "delta_auroc": -0.0017517517517516845,
+      "ci95": [
+        -0.015000441696113087,
+        0.011820989942422234
+      ],
+      "valid_resamples": 2000,
+      "valid_fraction": 1.0
+    },
+    {
+      "landmark": 8,
+      "n": 342,
+      "positive": 6,
+      "sc_auroc": 0.9092261904761905,
+      "sce_auroc": 0.902281746031746,
+      "delta_auroc": -0.00694444444444442,
+      "ci95": [
+        -0.025373585074493343,
+        0.011520737327188946
+      ],
+      "valid_resamples": 1993,
+      "valid_fraction": 0.9965
+    },
+    {
+      "landmark": 9,
+      "n": 297,
+      "positive": 4,
+      "sc_auroc": 0.7090443686006825,
+      "sce_auroc": 0.6860068259385665,
+      "delta_auroc": -0.023037542662115995,
+      "ci95": [
+        -0.053121130248789825,
+        0.0
+      ],
+      "valid_resamples": 1971,
+      "valid_fraction": 0.9855
+    },
+    {
+      "landmark": 10,
+      "n": 263,
+      "positive": 5,
+      "sc_auroc": 0.7496124031007751,
+      "sce_auroc": 0.7147286821705426,
+      "delta_auroc": -0.03488372093023251,
+      "ci95": [
+        -0.1152300077639752,
+        0.03404551031362629
+      ],
+      "valid_resamples": 1983,
+      "valid_fraction": 0.9915
+    },
+    {
+      "landmark": 11,
+      "n": 256,
+      "positive": 9,
+      "sc_auroc": 0.7629329734592892,
+      "sce_auroc": 0.7854251012145749,
+      "delta_auroc": 0.02249212775528564,
+      "ci95": [
+        -0.022585749285422625,
+        0.06418806919940558
+      ],
+      "valid_resamples": 2000,
+      "valid_fraction": 1.0
+    }
+  ]
+}

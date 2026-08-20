@@ -1,0 +1,45 @@
+{
+  "run_id": "pp_v1_20260730",
+  "generated_at": "2026-07-30T22:42:23",
+  "config_hash": "4da58ae4c94be9877c37849b4599a10a8ec5ad4f76aeed2832b9d699c63d2515",
+  "config_path": "D:\\BaiduSyncdisk\\work\\SEPSIS-MM-DYN\\preprocess\\configs\\preprocess_v1.yaml",
+  "python": "3.11.7",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "deps": {
+    "duckdb": "1.5.3",
+    "pandas": "2.3.3",
+    "numpy": "2.4.6"
+  },
+  "upstream_hashes": {
+    "cohorts/cohort_mimic_v2.parquet": "aadb8cfe0f1f4aeb82370cb2f96a805d2982956d0b0365a43e5c150b7275a6a8",
+    "landmarks/landmarks_v2.parquet": "8ef04fee29b77bcf6e78236e98080a588e27907f7f334b6d80c9640350e988a0",
+    "labels/labels_24h_v2.parquet": "88ccf297c56ba4bb3a56cbd57e67e42cd158c31920fc6bce5ba05850f8d74a6d",
+    "features/vitals_realtime_strict_v2.parquet": "28d738688c224cde31fbf9924c4eaf5135af9c52cef6de1828475ff122958387",
+    "features/labs_hourly_v2.parquet": "f4f1419c9ea24e7d884e4cb600ecdb3310fcee6f577346d57c3852bb33866258",
+    "features/sofa_hourly_v2.parquet": "dc139bf0f791783c4bf55fce6cca85af89f61b0360e817b46a09aecc6dcd1bd8",
+    "ecg_index/ecg_landmark_index_v2.parquet": "24d491e5f1dd9023de985df3a3287a0e46cb472540c94f2141ced49d5f260aa8",
+    "splits/split_assignments_v2.parquet": "9951f4f9b945650bff7bcfd46f60305c4d593386b1a27924de7da7801f27f6e1",
+    "cohorts/cohort_eicu_v2.parquet": "480edaa900636449cc93c81d75f3893edc0aadabf7a02f76c1a24ba446bdeab3"
+  },
+  "d0_decision": {
+    "status": "decided",
+    "primary_time_origin": "suspected_infection_time",
+    "secondary_time_origins": [
+      "max(sofa_time, suspected_infection_time)",
+      "icu_admission"
+    ],
+    "source_table": "mimiciv_derived.sepsis3",
+    "source_code_commit": "a0af19c18a66b6d96935058ebfa830608989bd7c",
+    "protocol_amendment_required": true,
+    "protocol_amendment_note": "D0 出口 B：主时间原点正式定为 suspected_infection_time。依据：锁定版 mimic-code（a0af19c）MIMIC-IV sepsis3 概念不输出 sepsis_time（qa/derived_provenance_v2.md §2）；sofa_time 与 suspected_infection_time 差值分布 [-48h, +24h]（78.5% 感染疑似更早），敏感性轨保留 max(sofa_time, suspected_infection_time) 与 icu_admission 两口径。PI 批准日期 2026-07-30。",
+    "pi_approval_date": "2026-07-30"
+  },
+  "freeze_checklist": "present",
+  "seeds": {
+    "seed_root": 20260730
+  },
+  "substitutions": [
+    "pytest 未安装 → tests 使用 stdlib unittest（方案 §15.1 替代登记）",
+    "lmdb 未安装 → ECG 缓存使用 npy memmap（方案 §7.3 替代登记）"
+  ]
+}

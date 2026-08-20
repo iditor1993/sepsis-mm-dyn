@@ -1,0 +1,24 @@
+{
+  "mimic_code_reference": {
+    "repo": "https://github.com/MIT-LCP/mimic-code.git",
+    "commit": "a0af19c18a66b6d96935058ebfa830608989bd7c",
+    "commit_date": "2026-07-04T20:28:16-04:00",
+    "fetched_at": "2026-07-30",
+    "fetch_method": "gh-proxy.com mirror（本机直连 GitHub 不可达，FetchURL 预验内容一致）",
+    "files": {
+      "mimic-iv/concepts/sepsis/sepsis3.sql": {
+        "sha256": "1d06e0efed85220c8a9cfd27ee9ee50e4dfbbe7a4975a7d2f7af72a92766692a",
+        "bytes": 2824,
+        "notes": "sofa.endtime ∈ [suspected_infection_time-48h, +24h]；每 stay 最早 rn_sus=1；输出 14 列，无 sepsis_time；sofa_time=endtime（SOFA 有效窗末端）"
+      },
+      "mimic-iv/concepts/sepsis/suspicion_of_infection.sql": {
+        "sha256": "0fc3d5a84ce727b94b7adbacf410a0af341248ebbebc6ad98ff9dbacc6701f0f",
+        "bytes": 6117,
+        "notes": "ab 源 mimiciv_derived.antibiotic；72h 前窗/24h 后窗（charttime 精确、chartdate 日粒度）；取最早培养；suspected_infection_time=COALESCE(last72_charttime, antibiotic_time)"
+      }
+    },
+    "pending": [
+      "DB 构建所用 mimic-code commit 确认（向 DuckDB 构建者核实）"
+    ]
+  }
+}
